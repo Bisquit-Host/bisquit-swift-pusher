@@ -1,6 +1,6 @@
 # Bisquit Swift Pusher
 
-💧 A project built with the Vapor web framework
+Swift/Vapor based back-end for push notifications & Live Activity
 
 ## Environment variables
 - APNS_PRIVATE_KEY
