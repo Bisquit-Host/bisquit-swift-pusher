@@ -24,7 +24,7 @@ public func configure(_ app: Application) async throws {
     // Env vars
     let environment =  try APNSValidation.normalizedEnvironment(Environment.require("APNS_ENVIRONMENT"))
     let isProdEnv =    environment == "production"
-    let privateKey =   APNSValidation.normalizedPrivateKey(try Environment.require("APNS_PRIVATE_KEY"))
+    let privateKey =   try APNSValidation.normalizedPrivateKey(Environment.require("APNS_PRIVATE_KEY"))
     let privateKeyID = try Environment.require("APNS_PRIVATE_KEY_ID")
     let teamID =       try Environment.require("TEAM_ID")
     
