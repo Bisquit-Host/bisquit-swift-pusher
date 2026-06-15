@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "PyzhCloud",
+    name: "bisquit-swift-pusher",
     platforms: [
         .macOS(.v13)
     ],
@@ -26,7 +26,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "PyzhCloud",
+            name: "bisquit-swift-pusher",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "NIOCore", package: "swift-nio"),

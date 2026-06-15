@@ -22,11 +22,11 @@ COPY Sources ./Sources
 # 3.  Compile *and* stage the artefacts in ONE step  ────────────
 RUN --mount=type=cache,id=swift-build,target=/build/.build \
     swift build -c release \
-        --product PyzhCloud \
+        --product bisquit-swift-pusher \
         --static-swift-stdlib \
         -Xlinker -ljemalloc \
  && mkdir -p /stage \
- && cp "$(swift build -c release --show-bin-path)/PyzhCloud" /stage/ \
+ && cp "$(swift build -c release --show-bin-path)/bisquit-swift-pusher" /stage/ \
  && cp /usr/libexec/swift/linux/swift-backtrace-static /stage/ \
  && find -L "$(swift build -c release --show-bin-path)/" -regex '.*\.resources$' -exec cp -Ra {} /stage/ \;
 
@@ -55,5 +55,5 @@ ENV SWIFT_BACKTRACE=enable=yes,sanitize=yes,threads=all,images=all,interactive=n
 USER vapor:vapor
 EXPOSE 911
 
-ENTRYPOINT ["./PyzhCloud"]
+ENTRYPOINT ["./bisquit-swift-pusher"]
 CMD ["serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "911"]
