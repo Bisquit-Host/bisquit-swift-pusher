@@ -78,12 +78,18 @@ func routes(_ app: Application) throws {
                 )
                 
                 Task {
-                    try await req.apns.client.sendLiveActivityNotification(
-                        alert,
-                        deviceToken: input.liveActivityToken
-                    )
-                    
-                    try await ws.close()
+                    do {
+                        try await req.apns.client.sendLiveActivityNotification(
+                            alert,
+                            deviceToken: input.liveActivityToken
+                        )
+                        
+                        try await ws.close()
+                    } catch let error as APNSError {
+                        req.logger.error("APNS failed ending live activity: status=\(error.responseStatus, default: "-") reason=\(error.reason, default: "-")")
+                    } catch {
+                        req.logger.error("Failed ending live activity: \(error)")
+                    }
                 }
             }
         }
