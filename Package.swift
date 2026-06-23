@@ -22,7 +22,7 @@ let package = Package(
         
         // TOTP
         // https://github.com/lachlanbell/SwiftOTP
-            .package(url: "https://github.com/lachlanbell/SwiftOTP.git", from: "3.0.2"),
+            .package(url: "https://github.com/lachlanbell/SwiftOTP.git", from: "3.0.2")
     ],
     targets: [
         .executableTarget(
