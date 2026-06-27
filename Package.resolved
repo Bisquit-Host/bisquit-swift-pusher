@@ -1,5 +1,5 @@
 {
-  "originHash" : "83bf662076af7cc860951298d141855c435b4a1a2d95333eaa5061414b5b3deb",
+  "originHash" : "45d4555d966dfa8f2f9e66f324b767b868877df94b7d1bf84b1aa3ca0d3d6924",
   "pins" : [
     {
       "identity" : "apns",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server-community/APNSwift.git",
       "state" : {
-        "revision" : "9c781aea21054fd0a0db3d4df1a340cb6eeef11f",
-        "version" : "6.5.0"
+        "revision" : "81eb92b6d5cbea9dac154becedf316c05189a47a",
+        "version" : "6.6.0"
       }
     },
     {
@@ -186,8 +186,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "a8e036cb8628fcc1ff67dfec6ce8168617172c9b",
-        "version" : "2.101.1"
+        "revision" : "cd3e1152083706d77b223fb29110e590efcc70c0",
+        "version" : "2.101.2"
       }
     },
     {
