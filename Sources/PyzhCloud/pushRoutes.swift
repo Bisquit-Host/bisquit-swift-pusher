@@ -20,7 +20,7 @@ extension Application {
             guard !body.tokens.isEmpty else {
                 throw Abort(.badRequest, reason: "No tokens provided")
             }
-
+            
             let tokens = try body.tokens.map { try APNSValidation.normalizedDeviceToken($0) }
             let topic = try APNSValidation.resolveTopic(
                 requestTopic: body.topic,
