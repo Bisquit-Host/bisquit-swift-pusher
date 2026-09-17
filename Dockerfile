@@ -13,14 +13,14 @@ WORKDIR /build
 
 # 1.  Dependency resolution  ────────────────────────────────────
 COPY Package.swift Package.resolved ./
-RUN --mount=type=cache,id=swiftpm,target=/root/.cache/swiftpm \
+RUN --mount=type=cache,id=bisquit-swift-pusher-swiftpm,target=/root/.cache/swiftpm,sharing=locked \
     swift package resolve --force-resolved-versions
 
 # 2.  Application sources  ──────────────────────────────────────
 COPY Sources ./Sources
 
 # 3.  Compile *and* stage the artefacts in ONE step  ────────────
-RUN --mount=type=cache,id=swift-build,target=/build/.build \
+RUN --mount=type=cache,id=bisquit-swift-pusher-swift-6.4-native-build,target=/build/.build,sharing=locked \
     swift build --build-system native -c release \
         --product bisquit-swift-pusher \
         --static-swift-stdlib \
