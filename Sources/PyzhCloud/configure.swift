@@ -31,7 +31,7 @@ public func configure(_ app: Application) async throws {
     // APNS
     let apnsProductionConfig = APNSClientConfiguration(
         authenticationMethod: .jwt(
-            privateKey:     try .loadFrom(string: privateKey),
+            privateKey:     try P256.Signing.PrivateKey(pemRepresentation: privateKey),
             keyIdentifier:  privateKeyID,
             teamIdentifier: teamID
         ),
